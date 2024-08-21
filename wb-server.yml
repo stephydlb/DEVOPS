@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wb-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wb-server
+  template:
+    metadata:
+      labels:
+        app: wb-server
+    spec:
+      containers:
+      - name: wb-server
+        image: httpd:latest
+        ports:
+        - containerPort: 80
